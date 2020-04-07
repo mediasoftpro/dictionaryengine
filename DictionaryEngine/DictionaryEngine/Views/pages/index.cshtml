@@ -1,0 +1,57 @@
+﻿@inject IStringLocalizer<GeneralResource> GeneralResource
+
+    <div class="row" style="min-height:500px;">
+        <div class="col-md-9">
+            <div class="m-b-10">
+
+                Recent Topics....
+
+
+               @*
+                   @await Html.PartialAsync("~/views/videos/partials/_List_SM_01.cshtml", new Jugnoon.Videos.Models.VideoListViewModel()
+                {
+                      BrowseText = SharedLocalizer["See All"].Value,
+                      HeadingTitle = SharedLocalizer["Featured"].Value + " " + SharedLocalizer["Videos"].Value,
+                      NoRecordFoundText = SharedLocalizer["No Featured Videos!"].Value,
+                      ListObject = new Jugnoon.Scripts.ListItems()
+                      {
+                          TitleLength = 50,
+                          showUser = false,
+                          showViews = true,
+                          showDate = true,
+                          showDuration = true,
+                          ItemType = ItemType.Div,
+                          ListType = ListType.Grid,
+                          ColWidth = "col-md-3 col-xs-6",
+                          isHover = false
+                      },
+                      BrowseUrl = Config.GetUrl("videos/"),
+                      QueryOptions = new VideoEntity()
+                      {
+                          order = "video.created_at desc",
+                          ispublic = true,
+                          iscache = true,
+                          isfeatured = FeaturedTypes.Featured,
+                          pagesize = 10,
+                          type = MediaType.Videos
+                      }
+                  })
+               *@ 
+
+            </div>
+          
+
+           
+
+        </div>
+        <div class="col-md-3">
+            @await Html.PartialAsync("~/Views/home/partials/_Nav.cshtml", new Jugnoon.Models.MainNavViewModel()
+            {
+               hideAds = false,
+               hideSearch = true,
+               hideArchives = false,
+               hideCategories = false,
+               hideTags = false
+            })
+        </div>
+    </div>

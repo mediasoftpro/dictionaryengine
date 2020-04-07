@@ -1,0 +1,18 @@
+﻿@model NavModelView
+@inject IStringLocalizer<GeneralResource> GeneralResource
+@inject Microsoft.Extensions.Options.IOptions<Jugnoon.Settings.Features> featureSettings
+@{
+   
+    string profilecss = "";
+    switch (Model.ActiveIndex)
+    {
+      
+        case 8:
+            profilecss = " active";
+            break;
+    }
+}
+
+<div class="list-group m-t-10">
+     <a class="list-group-item list-group-item-action @profilecss" href="@Config.GetUrl("user/profile/" + Model.username)">@GeneralResource["_user_profile"].Value</a>
+</div>

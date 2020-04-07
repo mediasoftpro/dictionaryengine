@@ -1,0 +1,52 @@
+﻿@inject IStringLocalizer<GeneralResource> GeneralResource
+@inject IStringLocalizer<DictionaryResource> DictionaryResource
+@{
+    var Character = "";
+    var Term = "";
+    var Query = "";
+
+
+}
+<div class="m-t-5 m-b-5">
+    @if (Term != "")
+    {
+        <h1>
+            Term:
+            <span>@Term</span>
+        </h1>
+
+    }
+    @if (Character != "")
+    {
+        <h1>
+            @Query
+        </h1>
+    }
+    @if (Character != "")
+    {
+        <h1>
+            Character:
+            <span>@Term</span>
+        </h1>
+
+    }
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Config.GetUrl()">@GeneralResource["_home"]</a></li>
+        @if (Character != "" && Term != "")
+        {
+            <li class="breadcrumb-item active">@GeneralResource["_glossary"]</li>
+        }
+        else
+        {
+            <li class="breadcrumb-item"><a href="@Config.GetUrl("glossary/")">@GeneralResource["_glossary"]</a></li>
+            if (Character != "")
+            {
+                <li><a href="@Config.GetUrl()glossary/c_@Character.ToLower()" title="@DictionaryResource["_term_by_characters"].Value @Character.ToUpper()">@DictionaryResource["_character"] (@Character.ToUpper())</a></li>
+            }
+            if (Term != "")
+            {
+                <li class="breadcrumb-item"><a href="@Config.GetUrl()wiki/@Term.ToLower()">@Term</a></li>
+            }
+        }
+    </ol>
+</div>

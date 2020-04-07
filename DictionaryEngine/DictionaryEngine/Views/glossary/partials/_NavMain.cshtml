@@ -1,0 +1,19 @@
+﻿@inject IStringLocalizer<GeneralResource> GeneralResource
+@{
+    var SearchViewPath = "~/Views/shared/_Search.cshtml";
+    var RecentViewPath = "~/Views/glossary/partials/_Rec.cshtml";
+}
+@await Html.PartialAsync(SearchViewPath, new SearchListModel()
+{
+    HeadingTitle = GeneralResource["_search"].Value,
+    Action = "/search/wiki",
+    PlaceHolder = GeneralResource["_search"].Value,
+    showAdvanceSearch = false
+})
+<aside class="box sidebar">
+    @await Html.PartialAsync("~/Views/partials/ads/ad_336.cshtml", new AdsModelView() { isAdult = false })
+
+    <div class="mb5">
+        @await Html.PartialAsync(RecentViewPath)
+    </div>
+</aside>

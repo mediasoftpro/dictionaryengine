@@ -1,0 +1,27 @@
+<div *ngIf="Info.length > 0">
+  <div class="card" *ngFor="let wiki of Info; let i = index">
+    <div class="card-body">
+      <h2 *ngIf="i === 0">{{ wiki.term_complete }}</h2>
+      <div [innerHTML]="wiki.description"></div>
+      <hr />
+      <p>
+        Recommended: {{ wiki.recommended }}, posted:
+        {{ wiki.created_at | date: "fullDate" }}, updated:
+        {{ wiki.updated_at | date: "fullDate" }}
+      </p>
+      <p *ngIf="wiki.tags_arr.length > 0 && wiki.replyid === 0">
+        Tags:
+        <span *ngFor="let tag of wiki.tags_arr">
+          <a [routerLink]="['/wiki/tag/' + tag.slug]">{{ tag.title }}</a
+          >,
+        </span>
+      </p>
+      <hr />
+    </div>
+  </div>
+</div>
+<div class="m-b-10 m-t-10">
+  <a class="btn btn-primary" [routerLink]="['/wiki/process/0/' + Info[0].id]"
+    >Post Suggestion</a
+  >
+</div>

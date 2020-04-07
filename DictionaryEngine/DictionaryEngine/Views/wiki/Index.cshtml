@@ -1,0 +1,64 @@
+﻿@inject IStringLocalizer<GeneralResource> GeneralResource
+@model WikiModelView
+@{
+    var _bModel = new List<BreadItem>();
+    _bModel.Add(new BreadItem()
+    {
+        title = GeneralResource["_home"].Value,
+        url = Config.GetUrl()
+    });
+    _bModel.Add(new BreadItem()
+    {
+        title = GeneralResource["_topics"].Value,
+
+        url = Config.GetUrl("glossary")
+    });
+    var BreadCrumbViewModel = new BreadViewModel()
+    {
+        BreadItems = _bModel,
+        Header = ViewBag.title
+    };
+}
+<partial name="~/Views/Shared/_BreadCrumb.cshtml" model="BreadCrumbViewModel" />
+
+
+@if (Model.Data == null)
+{
+    @await Html.PartialAsync("~/Views/partials/utility/_norecord.cshtml", 
+         new NoRecordModelView() { Message = GeneralResource["_no_records"].Value })
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8">
+            <div class="m-b-20">
+                @{
+                    var _character = "";
+                    if (Model.Data.term_complete != null || Model.Data.term_complete == "")
+                    {
+                        _character = Model.Data.term_complete;
+                    }
+                    else
+                    {
+                        _character = Model.Data.term;
+                    }
+                    var _navModel = new GlossaryNavView()
+                    {
+                        Character = _character.Substring(0, 1).ToLower(),
+                        isHeader = true
+                    };
+                }
+                @await Html.PartialAsync("~/Views/glossary/partials/_Nav.cshtml", _navModel)
+            </div>
+            <div class="m-b-5">
+                @await Html.PartialAsync("~/Views/wiki/partials/_Detail.cshtml")
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            @await Html.PartialAsync("~/Views/wiki/partials/_Nav.cshtml")
+        </div>
+
+    </div>
+
+}

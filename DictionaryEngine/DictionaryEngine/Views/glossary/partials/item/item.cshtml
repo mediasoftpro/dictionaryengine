@@ -1,0 +1,47 @@
+﻿@model Jugnoon.Models.WikiItemViewModel
+@using System.Text.RegularExpressions;
+@*
+    Core Item Design
+*@
+
+@{
+
+    string _title = "";
+    if (Model.Data.term_complete != "")
+    {
+        _title = Model.Data.term_complete;
+    }
+    else
+    {
+        _title = Model.Data.term;
+    }
+    var hoverCss = "";
+    if (Model.ListObject.isHover)
+    {
+        hoverCss = "item-hover";
+    }
+
+    var _desc = BBCode.MakeHtml(Model.Data.description, true);
+
+    if (_desc.Length > 1000)
+    {
+        _desc = UtilityBLL.StripHTML(_desc.Substring(0, 1000) + "...stpr");
+        string removeBrokenHyperlinks = Regex.Replace(_desc, @"<a(.*)?stpr", "");
+
+        string removeBrokenP = Regex.Replace(removeBrokenHyperlinks, @"<p(.*)?stpr", "");
+        _desc = removeBrokenP.Replace("stpr", "");
+    }
+    else
+    {
+        _desc = UtilityBLL.StripHTML(_desc);
+    }
+}
+
+<div class="list-item @hoverCss m-b-20">
+    <h3 class="m-b-5">
+        <a class="item-title" title="@_title" href="@Model.ProfileUrl">@_title</a>
+    </h3>
+    <div class="m-b-5">
+        @_desc
+    </div>
+</div>

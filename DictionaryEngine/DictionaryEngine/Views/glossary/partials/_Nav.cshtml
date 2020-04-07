@@ -1,0 +1,288 @@
+﻿@model Jugnoon.Models.GlossaryNavView
+@inject IStringLocalizer<GeneralResource> GeneralResource
+@inject IStringLocalizer<DictionaryResource> DictionaryResource
+@if (Model.isHeader)
+{
+    <h3 class="m-b-10">@DictionaryResource["_term_by_characters"].Value</h3>
+}
+<nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm">
+        @if (Model.Character == "a")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/a")" title="@DictionaryResource["_term_by_characters"].Value  A">A</a></li>
+        }
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/a")" title="@DictionaryResource["_term_by_characters"].Value A">A</a></li>
+        }
+        @if (Model.Character == "b")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/b")" title="@DictionaryResource["_term_by_characters"].Value  B">B</a></li>
+        }
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/b")" title="@DictionaryResource["_term_by_characters"].Value  B">B</a></li>
+        }
+        @if (Model.Character == "c")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/c")" title="@DictionaryResource["_term_by_characters"].Value  C">C</a></li>
+        }
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/c")" title="@DictionaryResource["_term_by_characters"].Value  C">C</a></li>
+        }
+        @if (Model.Character == "d")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/d")" title="@DictionaryResource["_term_by_characters"].Value  D">D</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/d")" title="@DictionaryResource["_term_by_characters"].Value  D">D</a></li>
+        }
+
+
+        @if (Model.Character == "e")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/e")" title="@DictionaryResource["_term_by_characters"].Value  E">E</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/e")" title="@DictionaryResource["_term_by_characters"].Value  E">E</a></li>
+        }
+
+
+        @if (Model.Character == "f")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/f")" title="@DictionaryResource["_term_by_characters"].Value  F">F</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/f")" title="@DictionaryResource["_term_by_characters"].Value  F">F</a></li>
+        }
+
+
+        @if (Model.Character == "g")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/g")" title="@DictionaryResource["_term_by_characters"].Value  G">G</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/g")" title="@DictionaryResource["_term_by_characters"].Value  G">G</a></li>
+        }
+
+
+        @if (Model.Character == "h")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/h")" title="@DictionaryResource["_term_by_characters"].Value  H">H</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/h")" title="@DictionaryResource["_term_by_characters"].Value  H">H</a></li>
+        }
+
+
+        @if (Model.Character == "i")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/i")" title="@DictionaryResource["_term_by_characters"].Value  I">I</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/i")" title="@DictionaryResource["_term_by_characters"].Value  I">I</a></li>
+        }
+
+        @if (Model.Character == "j")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/j")" title="@DictionaryResource["_term_by_characters"].Value  J">J</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/j")" title="@DictionaryResource["_term_by_characters"].Value  J">J</a></li>
+        }
+
+
+        @if (Model.Character == "k")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/k")" title="@DictionaryResource["_term_by_characters"].Value  K">K</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/k")" title="@DictionaryResource["_term_by_characters"].Value  K">K</a></li>
+        }
+
+
+        @if (Model.Character == "l")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/l")" title="@DictionaryResource["_term_by_characters"].Value  L">L</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/l")" title="@DictionaryResource["_term_by_characters"].Value  L">L</a></li>
+        }
+
+
+        @if (Model.Character == "m")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/m")" title="@DictionaryResource["_term_by_characters"].Value  M">M</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/m")" title="@DictionaryResource["_term_by_characters"].Value  M">M</a></li>
+        }
+
+
+        @if (Model.Character == "n")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/n")" title="@DictionaryResource["_term_by_characters"].Value  N">N</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/n")" title="@DictionaryResource["_term_by_characters"].Value  N">N</a></li>
+        }
+
+
+        @if (Model.Character == "o")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/o")" title="@DictionaryResource["_term_by_characters"].Value  O">O</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/o")" title="@DictionaryResource["_term_by_characters"].Value  O">O</a></li>
+        }
+
+
+        @if (Model.Character == "p")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/p")" title="@DictionaryResource["_term_by_characters"].Value  P">P</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/p")" title="@DictionaryResource["_term_by_characters"].Value  P">P</a></li>
+        }
+
+
+        @if (Model.Character == "q")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/q")" title="@DictionaryResource["_term_by_characters"].Value  Q">Q</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/q")" title="@DictionaryResource["_term_by_characters"].Value  Q">Q</a></li>
+        }
+
+
+        @if (Model.Character == "r")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/r")" title="@GeneralResource["_term_by_characters"]  R">R</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/r")" title="@GeneralResource["_term_by_characters"]  R">R</a></li>
+        }
+
+
+        @if (Model.Character == "s")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/s")" title="@GeneralResource["_term_by_characters"]  S">S</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/s")" title="@GeneralResource["_term_by_characters"]  S">S</a></li>
+        }
+
+
+        @if (Model.Character == "t")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/t")" title="@GeneralResource["_term_by_characters"]  T">T</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/t")" title="@GeneralResource["_term_by_characters"]  T">T</a></li>
+        }
+
+
+        @if (Model.Character == "u")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/u")" title="@GeneralResource["_term_by_characters"]  U">U</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/u")" title="@GeneralResource["_term_by_characters"]  U">U</a></li>
+        }
+
+
+        @if (Model.Character == "v")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/v")" title="@GeneralResource["_term_by_characters"]  V">V</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/v")" title="@GeneralResource["_term_by_characters"]  V">V</a></li>
+        }
+
+
+        @if (Model.Character == "w")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/w")" title="@GeneralResource["_term_by_characters"]  W">W</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/w")" title="@GeneralResource["_term_by_characters"]  W">W</a></li>
+        }
+
+
+        @if (Model.Character == "x")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/x")" title="@GeneralResource["_term_by_characters"]  X">X</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/x")" title="@GeneralResource["_term_by_characters"]  X">X</a></li>
+        }
+
+
+        @if (Model.Character == "y")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/y")" title="@GeneralResource["_term_by_characters"]  Y">Y</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/y")" title="@GeneralResource["_term_by_characters"]  Y">Y</a></li>
+        }
+
+
+        @if (Model.Character == "z")
+        {
+            <li class="page-item active"><a class="page-link" href="@Config.GetUrl("glossary/character/z")" title="@GeneralResource["_term_by_characters"]  Z">Z</a></li>
+        }
+
+        else
+        {
+            <li class="page-item"><a class="page-link" href="@Config.GetUrl("glossary/character/z")" title="@GeneralResource["_term_by_characters"]  Z">Z</a></li>
+        }
+
+    </ul>
+
+</nav>
+

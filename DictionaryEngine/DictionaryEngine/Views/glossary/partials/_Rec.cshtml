@@ -1,0 +1,29 @@
+﻿@inject IStringLocalizer<DictionaryResource> DictionaryResource
+@inject Jugnoon.Framework.ApplicationDbContext _context
+@using Jugnoon.BLL
+@{
+    var _lst = WikiBLLC.LoadItems(_context, new Jugnoon.Entity.WikiEntity()
+    {
+        pagesize = 10,
+        order = "id desc"
+    }).Result;
+    if (_lst.Count > 0)
+    {
+
+        <h4 class="m-b-20">@DictionaryResource["_recent_topics"].Value</h4>
+
+        <ul class="horizontal_nav">
+
+            @foreach (var Item in _lst)
+            {
+                <li class="m-b-5">
+                    <a href="@Config.GetUrl("wiki/" + UtilityBLL.ReplaceSpaceWithHyphin_v2(Item.term.ToLower().Trim()))" title="@DictionaryResource["_glossary_terms"].Value @Item.term_complete">@Item.term</a>
+                </li>
+            }
+
+        </ul>
+
+
+        <hr />
+    }
+}

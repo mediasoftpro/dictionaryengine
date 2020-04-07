@@ -1,0 +1,29 @@
+﻿@model WikiModelView
+
+@if (Model.isAllowed)
+{
+    string _title = "";
+    if (Model.Data.term_complete != "")
+    {
+        _title = Model.Data.term_complete;
+    }
+    else
+    {
+        _title = Model.Data.term;
+    }
+    <h2 class="m-b-10">
+        @_title
+    </h2>
+    <div class="m-b-10">
+        @Html.Raw(UGeneral.Prepare_Description(Model.Data.description, 0));
+    </div>
+}
+else
+{
+    @await Html.PartialAsync("~/Views/partials/utility/_norecord.cshtml", 
+         new NoRecordModelView() { Message = Model.DetailMessage })
+
+}
+
+
+

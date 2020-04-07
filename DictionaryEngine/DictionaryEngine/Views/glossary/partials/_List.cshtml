@@ -1,0 +1,82 @@
+﻿@inject IStringLocalizer<GeneralResource> GeneralResource
+@model Jugnoon.Models.GlossaryListView
+@inject Microsoft.Extensions.Options.IOptions<Jugnoon.Settings.General> generalSettings
+@{
+    var NoRecordViewPath = "~/Views/partials/utility/_norecord.cshtml";
+    var ListStatViewPath = "~/Views/partials/list/_ListStat.cshtml";
+    var PaginationViewPath = "~/Views/partials/list/_Pagination.cshtml";
+}
+
+<div class="item">
+    <h2 class="m-b-10"> @Model.HeadingTitle</h2>
+    @{
+
+        if (Model.TotalRecords == 0)
+        {
+            @await Html.PartialAsync(NoRecordViewPath, new NoRecordModelView() { Message = Model.NoRecordFoundText })
+        }
+        else
+        {
+
+            if (Model.DataList.Count > 0)
+            {
+
+                if (generalSettings.Value.pagination_links > 0)
+                {
+                    int maximum_allowed_records = generalSettings.Value.pagination_links * Model.TotalRecords;
+                    if (Model.TotalRecords > maximum_allowed_records)
+                    {
+                        Model.TotalRecords = maximum_allowed_records;
+                    }
+                }
+
+                <div class="row">
+                    <div class="col-md-12">
+                        @{
+                            // List Statistic Display
+                            if (Model.isListStatus)
+                            {
+                                var _listStat = new ListStatViewModels()
+                                {
+                                    pagenumber = Model.QueryOptions.pagenumber,
+                                    TotalRecords = Model.TotalRecords,
+                                    PageSize = Model.PageSize
+                                };
+                                @await Html.PartialAsync(ListStatViewPath, _listStat)
+                            }
+                        }
+                    </div>
+                </div>
+
+                var PartialPath = "~/Views/glossary/partials";
+
+                foreach (var Item in Model.DataList)
+                {
+                    @await Html.PartialAsync(PartialPath + "/item/Item.cshtml", new WikiItemViewModel()
+                    {
+                        Data = Item,
+                        ListObject = Model.ListObject,
+                        ProfileUrl = WikiUrlConfig.PrepareUrl(Item)
+                    });
+                }
+
+                <div class="float-left">
+                    @{
+                        if (Model.TotalRecords > Model.QueryOptions.pagesize)
+                        {
+                            var _paginationEntity = new PaginationViewModel()
+                            {
+                                pagenumber = Model.QueryOptions.pagenumber,
+                                TotalRecords = Model.TotalRecords,
+                                PageSize = Model.QueryOptions.pagesize,
+                                Default_Url = Model.DefaultUrl,
+                                Pagination_Url = Model.PaginationUrl
+                            };
+                            @await Html.PartialAsync(PaginationViewPath, _paginationEntity)
+                        }
+                    }
+                </div>
+            }
+        }
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@model Jugnoon.Models.GlossaryListView
+@await Html.PartialAsync("~/Views/glossary/partials/_Bread.cshtml")
+<div class="row">
+    <div class="col-md-8">
+        <div class="m-b-20">
+            @{
+                var _navModel = new Jugnoon.Models.GlossaryNavView()
+                {
+                    Character = Model.Character,
+                    isHeader = true
+                };
+            }
+            @await Html.PartialAsync("~/Views/glossary/partials/_Nav.cshtml", _navModel)
+        </div>
+        <div class="m-b-20">
+            <partial name="~/Views/glossary/partials/_List.cshtml" model="Model" />
+        </div>
+
+
+        @await Html.PartialAsync("~/Views/partials/ads/ad_728.cshtml", new AdsModelView() { isAdult = false })
+    </div>
+
+    <div class="col-md-4">
+
+        @await Html.PartialAsync("~/Views/glossary/partials/_NavMain.cshtml", Model)
+
+    </div>
+</div>
